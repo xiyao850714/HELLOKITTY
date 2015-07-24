@@ -2,11 +2,11 @@ package pretty;
 public class Power {
 	public static double myPower(double base, int e) {
 		double result = 0.0d;
-		if (e == 0.0d) // use e == 0, as e is int.
+		if (e == 0) // use e == 0, as e is int.
 			return 1.0d;
 		if (e == 1.0d)
 			return base;
-		if (e > 1.0d){
+		if (e > 1){
 			result = myPower(base, e >> 1);
 		    result *= result;			
 		}
