@@ -10,7 +10,7 @@ public class Power {
 			result = myPower(base, e >> 1);
 		    result *= result;			
 		}
-		if (e % 2 == 1.0d)
+		if ((e & 1) == 1.0d)
 			result *= base;
 		if (e < 0 ) 
 			if (equal(base,0.0))
