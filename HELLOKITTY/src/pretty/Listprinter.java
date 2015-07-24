@@ -10,8 +10,9 @@ public class Listprinter {
 //			System.out.print(st.peek());
 			n = n.next;
 		}
-		while(st.isEmpty() == false){
-//			System.out.print(st.peek());
+		while(st.peek() != null){
+//		while(st.isEmpty() == false){
+			System.out.print(st.peek());
 			st.pop();			
 		}
 	}
