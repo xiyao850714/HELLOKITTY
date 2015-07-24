@@ -4,7 +4,7 @@ public class Power {
 		double result = 0.0d;
 		if (e == 0) // use e == 0, as e is int.
 			return 1.0d;
-		if (e == 1.0d)
+		if (e == 1)
 			return base;
 		if (e > 1){
 			result = myPower(base, e >> 1);
