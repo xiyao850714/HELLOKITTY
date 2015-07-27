@@ -2,7 +2,7 @@ package pretty;
 
 public class Overhalf {
 	public static boolean getHalfnum(char[] myarray){
-		int[] n = new int[256];
+		int[] n = new int[65535];
 		for(char item:myarray){
 			n[item] += 1;
 		}
