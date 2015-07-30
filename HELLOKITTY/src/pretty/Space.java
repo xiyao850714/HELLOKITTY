@@ -41,11 +41,13 @@ public class Space {
 	public static void main(String[] args) {
 		String s = new String("We 1 We 2 We 3 We 4");
 		String s1 = new String("  We  1  %20  2");
+		String s2 = new String("WeWe11111111%20%201122222");
 		Space.replaceSpace("   We are happy.");
 		Space.replaceSpace("We    are    happy.");
 		Space.replaceSpace2("   We are happy.");
 		Space.replaceSpace2("We    are    happy.");
 		Space.replaceAll(s, "We", "%20");
 		Space.replaceAll(s1, "%20", "We");
+		Space.replaceAll(s2, "%20", "We");
 	}
 }
