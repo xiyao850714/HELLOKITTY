@@ -26,7 +26,6 @@ public class Inttimes {
 
 	public static void main(String[] args) {
 		int[] n = new int[]{1,2,3,4,5,6,6,6,6,6,6,6,6,6,6,6,8,9,12,40,80};
-//		System.out.println(n.length);
 		Inttimes.getIntTimes(n, 6);
 	}
 
