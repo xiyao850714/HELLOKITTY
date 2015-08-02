@@ -33,8 +33,12 @@ public class Postorder {
 				return false;
 			}
 		}
-		return Postorder.isPostordersub(n,start, middle-1)&&Postorder.isPostordersub(n, middle, end -1);	
-
+		boolean before = false;
+		boolean after = false;
+		if(start <= middle - 1 || middle <= end - 1){
+			return Postorder.isPostordersub(n,start, middle-1)&&Postorder.isPostordersub(n, middle, end -1);
+		}
+		return after;
 	}
 
 	public static void main(String[] args) {
