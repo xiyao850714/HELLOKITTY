@@ -3,7 +3,11 @@ package pretty;
 import java.util.Stack;
 
 public class Reorderlist {
-	public static Node<Integer> reorderList(Node<Integer> n){
+	public static Node<Integer> reorderList(Node<Integer> n) throws Myexception{
+		if(n == null){
+			throw new Myexception("list should not be null");
+		}
+		Node<Integer> show = n;
 		Stack<Node<Integer>> st = new Stack<Node<Integer>>();
 		Node<Integer> start = Reorderlist.getMiddle(n);
 		while(start != null){
@@ -11,27 +15,27 @@ public class Reorderlist {
 			start = start.next;
 		}
 		Node<Integer> temp = null;
-		while(! st.isEmpty()){
+		while(! st.isEmpty() && n.next != null){
 			temp = n.next;
-			System.out.println(st.peek().data);
 			n.next = st.pop();
 			n.next.next = temp;
 			n = n.next.next;
 		}
 		n.next = null;
-//		System.out.println(n.data);
+		while(show != null){
+	    	System.out.println(show.data);
+	    	show = show.next;
+		}
 		return n;
 	}
     public static Node<Integer> getMiddle(Node<Integer> head){
     	Node<Integer> slow = head;
     	Node<Integer> fast = head;
-    	while(fast.next.next != null){
+    	while(fast.next != null && fast.next.next != null){
     		slow = slow.next;
     		fast = fast.next.next;
     	}
     	Node<Integer> result = slow.next;
-    	slow.next = null;
-    	System.out.println(result.data);
     	return result;
     }
 	public static void main(String[] args) {
@@ -43,7 +47,13 @@ public class Reorderlist {
 		Node<Integer> michael6 = new Node<Integer>(9, michael5);
 		Node<Integer> michael7 = new Node<Integer>(3, michael6);
 		Node<Integer> michael8 = new Node<Integer>(6, michael7);
-        Reorderlist.reorderList(michael8);
+		try {
+			Reorderlist.reorderList(michael7);
+//	        Reorderlist.reorderList(michael8);
+		} catch (Myexception e) {
+			System.out.print(e.getMessage());
+		}
+
 	}
 
 }
