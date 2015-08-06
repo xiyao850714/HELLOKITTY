@@ -1,7 +1,7 @@
 package pretty;
 
 public class Duplicatenum1 {
-	public static Node<Integer> deleteDup(Node<Integer> n) throws Myexception{
+	public static Node<Integer> deleteDup(Node<Integer> n){
 		if(n == null && n.next == null){
 			return n;
 		}
@@ -43,7 +43,7 @@ public class Duplicatenum1 {
 	        return head.next;  
 	    }  
 	public static void main(String[] args) {
-		Node<Integer> micheal1 = new Node<Integer>(8, null);
+		Node<Integer> micheal1 = new Node<Integer>(9, null);
 		Node<Integer> micheal2 = new Node<Integer>(8, micheal1);
 		Node<Integer> micheal3 = new Node<Integer>(8, micheal2);
 		Node<Integer> michael4 = new Node<Integer>(7, micheal3);
@@ -57,15 +57,9 @@ public class Duplicatenum1 {
 		Node<Integer> michael12 = new Node<Integer>(3, michael11);
 		Node<Integer> michael13 = new Node<Integer>(2, michael12);
 		Node<Integer> michael14 = new Node<Integer>(2, michael13);
-		Node<Integer> michael15 = new Node<Integer>(2, michael14);
+		Node<Integer> michael15 = new Node<Integer>(1, michael14);
 		Node<Integer> michael16 = new Node<Integer>(1, michael15);
-		try {
-			Duplicatenum1.deleteDup(michael16);
-//			Duplicatenum1.deleteDup(null);
-		} catch (Myexception e) {
-			System.out.println(e.getMessage());
-		}
-
+		Duplicatenum1.deleteDup(michael16);
 	}
 
 }
