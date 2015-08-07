@@ -1,78 +1,86 @@
 package pretty;
 
 public class Twonumber {
+	static int temp = 0,sum = 0;
+	static Node<Integer> cur = new Node<Integer>(0,null);
+	static Node<Integer> pre = new Node<Integer>(0,cur);	
 	
 	public static Node<Integer> addNumber(Node<Integer> n, Node<Integer> m){
-		int temp = 0;
-		int sum = 0;
-		Node<Integer> head = null;
-		Node<Integer> current = null;
-		sum = n.data + m.data + temp;
-		if(sum >= 10){
-			temp = 1;
+		Node<Integer> head = new Node<Integer>(0,pre);
+
+		while(n == null){
+			return m;
 		}
-		n = n.next;
-		m = m.next;
-		current = new Node<Integer>(sum%10,null);
-		while(n.next != null && m.next != null){
+		while(m == null){
+			return n;
+		}
+
+		while(n != null && m != null){
 			sum = n.data + m.data + temp;
-			if(sum >= 10){
-				temp = 1;
-				head = new Node<Integer>(sum%10,null);
-				current.next = head;
+			cur.data= sum%10;
+			if(sum >= 10){			
+				temp = sum/10;
 			}
 			if(sum < 10){
 				temp = 0;
-				head = new Node<Integer>(sum,null);
-				current.next = head;
 			}
+			pre = cur;
+			cur = new Node<Integer>(0,null);
+			pre.next = cur;
 			n = n.next;
-			m = m.next;
+			m = m.next;				
+		}
+		temp = sum/10;
+		if(n == null && m == null){	
+		pre.next = new Node<Integer>(temp,null);
+		}
+		if(n == null){
+			Twonumber.addOnlyone(m, temp);
+		}
+		if(m == null){
+			Twonumber.addOnlyone(n, temp);
 		}
 
-		if(n.next == null){
-			if(temp == 0){
-				current.next = m;
-			}
-			while(temp == 1){
-				sum = m.data + temp;
+
+		while(head != null){
+			System.out.println(head.data);
+			head = head.next;
+		} 
+		return head;		
+	}
+	public static Node<Integer> addOnlyone(Node<Integer> p, int temp){
+		Node<Integer> subHead = new Node<Integer>(0,pre);
+		if(temp == 1){
+			while(p != null){
+				sum = p.data + temp;
+				cur.data = sum%10;
 				if(sum >= 10){
-					head = new Node<Integer>(sum%10,null);
-					current.next = head;
-					temp = 1;
+					temp = sum/10;
 				}
 				if(sum < 10){
 					temp = 0;
-					head = new Node<Integer>(sum,null);
-					current.next = head;
 				}
+				pre = cur;
+				cur = new Node<Integer>(0,null);
+				pre.next = cur;
+				p = p.next;		
 			}
 		}
-		if(m.next == null){
-			if(temp == 0){
-				current.next = n;
-			}	
-			if(sum >= 10){
-				head = new Node<Integer>(sum%10,null);
-				current.next = head;
-				temp = 1;
-			}
-			if(sum < 10){
-				temp = 0;
-				head = new Node<Integer>(sum,null);
-				current.next = head;
-			}
+		if(temp == 0){
+			pre.next = p;
+			return p;
 		}
-		current.next = null;
-		return current;		
+		return subHead;
 	}
 	public static void main(String[] args) {
-		Node<Integer> micheal1 = new Node<Integer>(4, null);
+		Node<Integer> micheal1 = new Node<Integer>(8, null);
 		Node<Integer> micheal2 = new Node<Integer>(1, micheal1);
-		Node<Integer> micheal3 = new Node<Integer>(7, micheal2);
-		Node<Integer> linda1 = new Node<Integer>(11, null);
+		Node<Integer> micheal3 = new Node<Integer>(5, micheal2);
+		Node<Integer> micheal4 = new Node<Integer>(1, micheal3);
+		Node<Integer> micheal5 = new Node<Integer>(7, micheal4);
+		Node<Integer> linda1 = new Node<Integer>(6, null);
 		Node<Integer> linda2 = new Node<Integer>(2, linda1);
 		Node<Integer> linda3 = new Node<Integer>(9, linda2);
-	    Twonumber.addNumber(linda3, micheal3);
+	    Twonumber.addNumber(linda3, micheal5);
 	}
 }
