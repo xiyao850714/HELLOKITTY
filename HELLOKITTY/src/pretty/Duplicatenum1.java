@@ -2,7 +2,7 @@ package pretty;
 
 public class Duplicatenum1 {
 	public static Node<Integer> deleteDup(Node<Integer> n){
-		if(n == null && n.next == null){
+		if(n == null || n.next == null){
 			return n;
 		}
 		Node<Integer> head = new Node<Integer>(0,n);  
@@ -40,7 +40,7 @@ public class Duplicatenum1 {
 	        	System.out.println(head.data);
 	        	head = head.next;
 	        }
-	        return head.next;  
+	        return head;  
 	    }  
 	public static void main(String[] args) {
 		Node<Integer> micheal1 = new Node<Integer>(9, null);
