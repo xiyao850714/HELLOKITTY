@@ -6,10 +6,10 @@ import java.util.Stack;
 
 public class TraversalIn {
 	public static List<Integer> inorderTraversal(TreeNode<Integer> root){
-		List<Integer> order = new ArrayList();
-		Stack<TreeNode> st = new Stack<TreeNode>();
+		List<Integer> order = new ArrayList<Integer>();
+		Stack<TreeNode<Integer>> st = new Stack<TreeNode<Integer>>();
 		if(root == null) return order;
-		TreeNode tn = root;
+		TreeNode<Integer> tn = root;
         while(!st.isEmpty()||tn!=null){
             if(tn!=null){
                 st.push(tn); 
