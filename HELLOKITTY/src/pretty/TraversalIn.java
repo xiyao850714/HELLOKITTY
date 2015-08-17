@@ -16,13 +16,13 @@ public class TraversalIn {
                 tn=tn.left;
             }else{
                 tn=st.pop();
-                order.add((Integer) tn.data);
+                order.add(tn.data);
                 tn=tn.right;
             }
         }
-//		for(int item:order){
-//		   System.out.println(item);
-//	    }
+		for(int item:order){
+		   System.out.println(item);
+	    }
 		return order;
     }
 
