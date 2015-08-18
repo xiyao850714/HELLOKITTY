@@ -12,10 +12,14 @@ public class CQueue{
 	static Stack<Integer> stin = new Stack<Integer>();
 	static Stack<Integer> stout = new Stack<Integer>();
 	
+	//Return: void. Input variable is int.
 	public static void queueIn(int n){
 		stin.push(n);
 //		System.out.println(stin.peek());
 	}
+	
+	
+	//Return int. No input variable.
 	public static int queueOut() throws Myexception{
 		if(!stout.isEmpty()){
 //			System.out.println(stout.peek());
@@ -29,6 +33,8 @@ public class CQueue{
 //		System.out.println(stout.peek());
 		return stout.pop();
 	}
+	
+	
 	public static void main(String[] args) {
 		try {
 			CQueue.queueOut();
