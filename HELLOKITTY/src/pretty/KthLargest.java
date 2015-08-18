@@ -38,6 +38,6 @@ public class KthLargest {
 
 	public static void main(String[] args) {
 		int[] nums = new int[] { 6, 4, 7, 10, 8, 9, 22 };
-		System.out.println(new KthLargest().findKthLargest(nums,1));
+		System.out.println(new KthLargest().findKthLargest(nums,2));
 	}
 }
