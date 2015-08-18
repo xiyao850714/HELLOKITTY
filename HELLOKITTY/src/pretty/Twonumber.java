@@ -35,13 +35,13 @@ public class Twonumber {
 		pre.next = new Node<Integer>(temp,null);
 		}
 		if(n == null){
-			Twonumber.addOnlyone(m, temp);
+			addOnlyone(m, temp);
 		}
 		if(m == null){
-			Twonumber.addOnlyone(n, temp);
+			addOnlyone(n, temp);
 		}
 
-
+        head = head.next.next;
 		while(head != null){
 			System.out.println(head.data);
 			head = head.next;
@@ -81,6 +81,11 @@ public class Twonumber {
 		Node<Integer> linda1 = new Node<Integer>(6, null);
 		Node<Integer> linda2 = new Node<Integer>(2, linda1);
 		Node<Integer> linda3 = new Node<Integer>(9, linda2);
-	    Twonumber.addNumber(linda3, micheal5);
+		Node<Integer> show1 = new Node<Integer>(0,null);
+		Node<Integer> show2 = new Node<Integer>(1,null);
+		Node<Integer> show3 = new Node<Integer>(0,null);
+//	    Twonumber.addNumber(linda3, micheal5);
+//	    Twonumber.addNumber(show1,show2);
+	    Twonumber.addNumber(show1,show3);
 	}
 }
