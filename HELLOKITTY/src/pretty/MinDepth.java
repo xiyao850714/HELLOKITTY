@@ -15,6 +15,7 @@ public class MinDepth {
 		
 		int depth = 1;
 		int curLevel = 1;
+		int nexLevel = 0;
 		Deque<TreeNode<Integer>> dq = new ArrayDeque<TreeNode<Integer>>();
 		dq.add(root);
 		
@@ -27,17 +28,25 @@ public class MinDepth {
 				System.out.println(depth);
 				return depth;
 			}
-		
-	   		if(root.left != null){
-    			dq.push(root.left);
-    		}
-    		if(root.right != null){
-    			dq.push(root.right);
-    		}
-    		if(curLevel == 0){
-    			depth ++;
-    			curLevel = dq.size();
-    		}
+			
+			//Add all node of one level, and mark the number of node.
+			if (root.left != null) {
+				dq.add(root.left);
+				nexLevel++;
+			}
+			if (root.right != null) {
+				dq.add(root.right);
+				nexLevel++;
+			}
+			
+			//Every time update the level num.
+			if (curLevel == 0) {
+				if (nexLevel != 0) {
+					depth++;
+				}
+				curLevel = nexLevel;
+				nexLevel = 0;
+			}
 		}
 		return depth;
 	}
